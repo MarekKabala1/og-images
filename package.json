@@ -1,0 +1,19 @@
+{
+  "name": "helpless-houston",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.3.1",
+    "@sparticuz/chromium": "119",
+    "astro": "^3.5.5",
+    "puppeteer-core": "^21.5.2",
+    "typescript": "^5.3.2"
+  }
+}
