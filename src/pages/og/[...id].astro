@@ -1,0 +1,39 @@
+---
+import type { GetStaticPaths } from 'astro';
+import OgImageTemplate from '../../components/OgImageTemplate.astro';
+
+export function getStaticPaths() {
+	return [
+		{ params: { id: 'nails-1' } },
+		{ params: { id: 'nails-2' } },
+		{ params: { id: 'nails-3' } },
+	];
+}
+const { id } = Astro.params;
+---
+
+<main>
+	<OgImageTemplate id={id} />
+</main>
+
+<style>
+	main {
+		/* --primary-color: #c8a2c8;
+		--secondary-color: #ffe7ff; */
+		--primary-color: #c4adc9;
+		--secondary-color: #f5f1e6;
+
+		height: 100dvh;
+		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		background: linear-gradient(
+			180deg,
+			var(--primary-color) -38.73%,
+			var(--secondary-color) 86.35%
+		);
+	}
+</style>

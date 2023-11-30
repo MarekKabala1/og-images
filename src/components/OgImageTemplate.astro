@@ -1,5 +1,7 @@
 ---
 import LogoSvg from './LogoSvg.astro';
+
+const { id } = Astro.params;
 ---
 
 <div class='og-container'>
@@ -75,7 +77,7 @@ import LogoSvg from './LogoSvg.astro';
 			</div>
 		</div>
 		<div class='img-container'>
-			<img src='/nails-2.png' alt='Beautiful nails Art' />
+			<img src=`/${id}.png` alt='Beautiful nails Art' />
 		</div>
 	</div>
 </div>
