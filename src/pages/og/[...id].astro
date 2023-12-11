@@ -1,6 +1,8 @@
 ---
-import type { GetStaticPaths } from 'astro';
 import OgImageTemplate from '../../components/OgImageTemplate.astro';
+import PageHead from '../../components/PageHead.astro';
+
+export const prerender = false;
 
 export function getStaticPaths() {
 	return [
@@ -11,6 +13,8 @@ export function getStaticPaths() {
 }
 const { id } = Astro.params;
 ---
+
+<PageHead id={id} slot='head' />
 
 <main>
 	<OgImageTemplate id={id} />
