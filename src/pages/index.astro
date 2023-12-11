@@ -12,14 +12,29 @@ import OgImageTemplate from '../components/OgImageTemplate.astro';
 		<title>OG</title>
 	</head>
 	<body>
-		<style>
-			html,
-			body {
-				width: 100vw;
-				height: 100vh;
-				margin: 0;
-				padding: 0;
-			}
-		</style>
+		<h1>Click link below to go to the page</h1>
+		<ul>
+			<li><a href='/og/nails-1'>nails-1</a></li>
+			<li><a href='/og/nails-2'>nails-2</a></li>
+			<li><a href='/og/nails-3'>nails-3</a></li>
+		</ul>
 	</body>
 </html>
+<style>
+	html,
+	body {
+		text-align: center;
+		width: 100vw;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+
+		& li {
+			list-style: none;
+
+			& a {
+				text-decoration: none;
+			}
+		}
+	}
+</style>
