@@ -4,13 +4,6 @@ import PageHead from '../../components/PageHead.astro';
 
 export const prerender = false;
 
-export function getStaticPaths() {
-	return [
-		{ params: { id: 'nails-1' } },
-		{ params: { id: 'nails-2' } },
-		{ params: { id: 'nails-3' } },
-	];
-}
 const { id } = Astro.params;
 ---
 
