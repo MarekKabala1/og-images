@@ -1,7 +1,18 @@
 ---
 import LogoSvg from './LogoSvg.astro';
+import '@fontsource/irish-grover';
 
 const { id } = Astro.params;
+export const prerender = false;
+
+import { generateOgImage } from '../pages/api/generateOgImage';
+
+const url = `http://localhost:4321/og/${id}`;
+const outputFilePath = `public/${id}.jpeg`;
+console.log(url);
+
+const ogImageBuffer = await generateOgImage(url, outputFilePath);
+console.log(ogImageBuffer);
 ---
 
 <div class='og-container'>
@@ -77,13 +88,12 @@ const { id } = Astro.params;
 			</div>
 		</div>
 		<div class='img-container'>
-			<img src=`/${id}.png` alt='Beautiful nails Art' />
+			<img src={`/${id}.png`} alt='Beautiful nails Art' />
 		</div>
 	</div>
 </div>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
 	* {
 		/* --primary-color: #c4adc9;
 		--secondary-color: #f5f1e6;
@@ -106,8 +116,9 @@ const { id } = Astro.params;
 			var(--primary-color) 86.35% var(--secondary-color)-38.73%
 		);
 		box-shadow: 0 0 0 10px var(--primary-color);
-		width: 1200px;
-		aspect-ratio: 1200/630;
+		width: 1100px;
+		aspect-ratio: 1100/530;
+		font-family: 'Irish Grover', sans-serif;
 	}
 	.wrapper {
 		box-sizing: border-box;

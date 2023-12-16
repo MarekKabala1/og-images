@@ -1,5 +1,7 @@
 ---
 import OgImageTemplate from '../components/OgImageTemplate.astro';
+const { id } = Astro.params;
+import '@fontsource/irish-grover';
 ---
 
 <html lang='en'>
@@ -18,11 +20,16 @@ import OgImageTemplate from '../components/OgImageTemplate.astro';
 			<li><a href='/og/nails-2'>nails-2</a></li>
 			<li><a href='/og/nails-3'>nails-3</a></li>
 		</ul>
+		<!-- <img
+			src={`/og-images/${id?.replace(/\//g, '-')}.png`}
+			alt='Beautiful nails Art'
+		/> -->
 	</body>
 </html>
 <style>
 	html,
 	body {
+		font-family: 'Irish Grover', sans-serif;
 		text-align: center;
 		width: 100vw;
 		height: 100vh;
