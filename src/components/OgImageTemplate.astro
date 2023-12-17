@@ -3,6 +3,15 @@ import LogoSvg from './LogoSvg.astro';
 import '@fontsource/irish-grover';
 
 const { id } = Astro.params;
+
+import { generateOgImage } from '../pages/api/generateOgImage';
+
+const url = `https://og-image-mkabala.vercel.app/og/${id}`;
+// `http://localhost:4321/og/${id}`;
+const outputFilePath = `public/${id}.jpeg`;
+console.log(url);
+
+await generateOgImage(url, outputFilePath);
 ---
 
 <div class='og-container'>
