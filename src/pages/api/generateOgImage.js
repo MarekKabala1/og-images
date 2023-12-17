@@ -1,6 +1,5 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 import chrome from '@sparticuz/chromium';
-import path from 'path';
 
 const exePath = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe';
 async function getOptions() {
@@ -10,6 +9,7 @@ async function getOptions() {
 		executablePath: exePath,
 		headless: false,
 		ignoreHTTPSErrors: true,
+		// ignoreDefaultArgs: ['--disable-extensions'],
 	};
 }
 let browser = null;
@@ -17,17 +17,17 @@ export async function generateOgImage(url, outputFilePath) {
 	const options = await getOptions();
 	if (!browser) {
 		console.log(url);
+		console.time('launching browser');
 		console.log(`launching browser`);
 		browser = await puppeteer.launch(options);
 		console.timeEnd(`launching browser`);
 
 		console.log(`creating new page`);
 		const page = await browser.newPage();
-		await page.setViewport({ width: 1200, height: 630 });
+		await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1 });
 		console.log('Before page.goto');
 		await page.goto(url);
 		console.log('After page.goto');
-
 		await page.waitForSelector('img');
 		const buffer = await page.screenshot({
 			type: 'jpeg',
@@ -44,8 +44,8 @@ export async function generateOgImage(url, outputFilePath) {
 			base64Image,
 			headers,
 		});
-		await browser.close();
 	}
+	await browser.close();
 }
 // await browser.close();
 
