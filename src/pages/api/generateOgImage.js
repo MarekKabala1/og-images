@@ -8,7 +8,7 @@ async function getOptions() {
 	return {
 		product: 'chrome',
 		args: chrome.args,
-		executablePath: exePath,
+		executablePath: await chrome.executablePath(),
 		headless: false,
 		ignoreHTTPSErrors: true,
 		// ignoreDefaultArgs: ['--disable-extensions'],
@@ -48,7 +48,7 @@ export async function generateOgImage(url, outputFilePath) {
 		});
 	}
 }
-// await browser.close();
+await browser.close();
 
 // export async function generateOgImage(url, outputFilePath) {
 // 	const options = await getOptions();
