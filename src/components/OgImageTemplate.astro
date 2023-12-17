@@ -3,6 +3,7 @@ import LogoSvg from './LogoSvg.astro';
 import '@fontsource/irish-grover';
 
 const { id } = Astro.params;
+console.log(id);
 export const prerender = false;
 
 import { generateOgImage } from '../pages/api/generateOgImage';

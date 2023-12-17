@@ -1,0 +1,19 @@
+---
+const { id } = Astro.params;
+console.log(id);
+---
+
+<meta
+	property='og:url'
+	content={`https://og-image-mkabala.vercel.app/og/${id}`}
+/>
+<meta property='og:type' content='website' />
+<meta property='og:title' content='IW-Nails Watford' />
+<meta
+	property='og:description'
+	content='Indulge in a pampering experience for your nails at a place that cares for you. Our dedicated professionals ensure meticulous nail care, creating a haven where your well-being is our top priority. Treat yourself to the ultimate nail transformation and let us nurture you with expert service and attention to detail. Discover a sanctuary for your nails, where beauty meets personalized care.'
+/>
+<meta
+	property='og:image'
+	content={`https://og-image-mkabala.vercel.app/${id}.jpeg`}
+/>

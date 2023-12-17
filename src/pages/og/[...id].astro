@@ -1,10 +1,14 @@
 ---
+import Head from '../../components/Head.astro';
 import OgImageTemplate from '../../components/OgImageTemplate.astro';
 
 export const prerender = false;
 
 const { id } = Astro.params;
+console.log('id for', id);
 ---
+
+<Head id={id} />
 
 <main>
 	<OgImageTemplate id={id} />
