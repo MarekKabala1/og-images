@@ -1,6 +1,8 @@
 import puppeteer from 'puppeteer-core';
 import chrome from '@sparticuz/chromium';
 
+export const prerender = false;
+
 const exePath = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe';
 async function getOptions() {
 	return {

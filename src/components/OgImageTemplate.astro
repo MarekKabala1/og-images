@@ -151,11 +151,13 @@ await generateOgImage(url, outputFilePath);
 		text-align: center;
 	}
 	p {
-		font-size: 1.35rem;
+		font-size: clamp(1.35rem, 1.5vw, 2rem);
+		/* font-size: 1.35rem; */
 		color: var(--text-color);
 	}
 	img {
 		height: auto;
+		width: auto;
 		margin: 0;
 		/* border-radius: 15px; */
 		aspect-ratio: 2/3;
