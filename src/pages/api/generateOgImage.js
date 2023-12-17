@@ -47,7 +47,6 @@ export async function generateOgImage(url, outputFilePath) {
 			headers,
 		});
 	}
-	await browser.close();
 }
 // await browser.close();
 
