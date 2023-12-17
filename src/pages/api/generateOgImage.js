@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer-core';
-import chrome from '@sparticuz/chromium';
+import chrome, { executablePath } from '@sparticuz/chromium';
 
 export const prerender = false;
 
@@ -8,7 +8,7 @@ async function getOptions() {
 	return {
 		product: 'chrome',
 		args: chrome.args,
-		executablePath: await chrome.executablePath(),
+		executablePath: exePath,
 		headless: false,
 		ignoreHTTPSErrors: true,
 		// ignoreDefaultArgs: ['--disable-extensions'],
