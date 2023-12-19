@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer-core';
-import chrome, { executablePath } from '@sparticuz/chromium';
+import chrome from '@sparticuz/chromium';
 
 export const prerender = false;
 
@@ -9,9 +9,8 @@ async function getOptions() {
 		product: 'chrome',
 		args: chrome.args,
 		executablePath: exePath,
-		headless: false,
+		headless: true,
 		ignoreHTTPSErrors: true,
-		// ignoreDefaultArgs: ['--disable-extensions'],
 	};
 }
 let browser = null;
@@ -48,16 +47,3 @@ export async function generateOgImage(url, outputFilePath) {
 		});
 	}
 }
-await browser.close();
-
-// export async function generateOgImage(url, outputFilePath) {
-// 	const options = await getOptions();
-// 	const browser = await puppeteer.launch(options);
-// 	const page = await browser.newPage();
-// 	await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1 });
-// 	await page.goto(url);
-// 	await page.waitForSelector('.finish-sizing-text');
-// 	const buffer = await page.screenshot({ type: 'png' });
-// 	await browser.close();
-// 	return buffer;
-// }
