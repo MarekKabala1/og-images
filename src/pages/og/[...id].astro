@@ -5,7 +5,7 @@ import OgImageTemplate from '../../components/OgImageTemplate.astro';
 export const prerender = false;
 
 const { id } = Astro.params;
-console.log('id for', id);
+console.log('id for', id, Astro.params);
 ---
 
 <Head id={id} />

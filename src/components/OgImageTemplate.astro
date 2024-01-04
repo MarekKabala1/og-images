@@ -6,10 +6,11 @@ const { id } = Astro.params;
 
 import { generateOgImage } from '../pages/api/generateOgImage';
 
-const url = `https://og-image-mkabala.vercel.app/og/${id}`;
-// `http://localhost:3000/og/${id}`;
+const location = new URL(Astro.request.url);
+console.log('og', location);
+
+const url = `${location}`;
 const outputFilePath = `public/${id}.jpeg`;
-console.log(url);
 
 await generateOgImage(url, outputFilePath);
 ---
@@ -87,7 +88,7 @@ await generateOgImage(url, outputFilePath);
 			</div>
 		</div>
 		<div class='img-container'>
-			<img src={`/${id}.png`} alt='Beautiful nails Art' />
+			<img class='img' src={`/${id}.png`} alt='Beautiful nails Art' />
 		</div>
 	</div>
 </div>
