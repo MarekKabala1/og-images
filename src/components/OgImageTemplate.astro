@@ -10,9 +10,9 @@ const location = new URL(Astro.request.url);
 console.log('og', location);
 
 const url = `${location}`;
-const outputFilePath = `public/${id}.jpeg`;
+// const outputFilePath = `public/${id}.jpeg`;
 
-await generateOgImage(url, outputFilePath);
+await generateOgImage(url);
 ---
 
 <div class='og-container'>

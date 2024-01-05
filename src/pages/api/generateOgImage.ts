@@ -34,7 +34,7 @@ async function getOptions(): Promise<PuppeteerLaunchOptions> {
 
 let browser: Browser | null = null;
 
-export async function generateOgImage(url: string, outputFilePath: string) {
+export async function generateOgImage(url: string) {
 	const options: PuppeteerLaunchOptions = await getOptions();
 
 	const urlWithoutOg = url.replace('/og', '');
@@ -63,7 +63,7 @@ export async function generateOgImage(url: string, outputFilePath: string) {
 		await page.waitForSelector('.img');
 		console.log(url)
 		console.log('After page.goto');
-		const buffer = await page.screenshot({ type: 'jpeg', path: outputFilePath });
+		const buffer = await page.screenshot({ type: 'jpeg' });
 		await browser.close()
 
 
