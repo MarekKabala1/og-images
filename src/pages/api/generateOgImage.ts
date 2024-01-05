@@ -37,10 +37,10 @@ let browser: Browser | null = null;
 export async function generateOgImage(url: string, outputFilePath: string) {
 	const options: PuppeteerLaunchOptions = await getOptions();
 
-
+	const urlWithoutOg = url.replace('/og', '');
 	// Check if the image is already in the cache
-	if (cache.has(url)) {
-		const cachedImage = cache.get(url);
+	if (cache.has(urlWithoutOg)) {
+		const cachedImage = cache.get(urlWithoutOg);
 		return {
 			base64Image: cachedImage,
 			headers,
@@ -71,7 +71,7 @@ export async function generateOgImage(url: string, outputFilePath: string) {
 		console.log(base64Image);
 
 		// Store the image in the cache
-		cache.set(url, base64Image);
+		cache.set(urlWithoutOg, base64Image);
 		//Set Browser to Null, to run in every call
 		browser = null;
 
